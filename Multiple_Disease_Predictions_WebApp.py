@@ -18,15 +18,10 @@ from sklearn.pipeline import Pipeline
 
 # Loading the saved models
 
-diabetes_model = pickle.load(open('C:/Users/janiy/OneDrive - Janiya Catering Company/Desktop/Correct_Multiple_Disease_Prediction_System/Diabetes_Pipeline.sav','rb'))
-heart_disease_model = pickle.load(open('C:/Users/janiy/OneDrive - Janiya Catering Company/Desktop/Correct_Multiple_Disease_Prediction_System/Heart_Disease_Pipeline.sav','rb'))
-parkinsons_model = pickle.load(open('C:/Users/janiy/OneDrive - Janiya Catering Company/Desktop/Correct_Multiple_Disease_Prediction_System/Parkinsons_Pipeline .sav','rb'))
-breast_cancer_model = pickle.load(open('C:/Users/janiy/OneDrive - Janiya Catering Company/Desktop/Correct_Multiple_Disease_Prediction_System/Breast_Cancer_Pipeline.sav','rb'))
-
-
-# Sidebar for navigate
-
-
+diabetes_model = pickle.load(open('Diabetes_Pipeline.sav','rb'))
+heart_disease_model = pickle.load(open('Heart_Disease_Pipeline.sav','rb'))
+parkinsons_model = pickle.load(open('Parkinsons_Pipeline .sav','rb'))
+breast_cancer_model = pickle.load(open('Breast_Cancer_Pipeline.sav','rb'))
 
 # Sidebar for navigate
 
