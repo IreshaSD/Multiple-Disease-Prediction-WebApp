@@ -31,7 +31,7 @@ with st.sidebar:
                            "Parkinsons Prediction",
                            "Breast Cancer Predictions"],
 
-                           icons = ['activity','heart-pulse-fill','person','person-standing-dress'],
+                           icons = ['activity','heart-pulse', 'person', 'person-standing-dress'],
                            default_index = 0) # This is the default starting page comes under option menu
 
 
