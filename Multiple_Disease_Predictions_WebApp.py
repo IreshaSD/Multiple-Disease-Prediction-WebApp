@@ -4,11 +4,13 @@ Created on Wed Apr 10 10:54:05 2024
 
 @author: Iresha Sandamali
 """
-
-
 import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
+
+#import pickle
+#import streamlit as st
+#from streamlit_option_menu import option_menu
 import numpy as np
 #from sklearn.preprocessing import StandardScaler
 #from sklearn.pipeline import Pipeline
