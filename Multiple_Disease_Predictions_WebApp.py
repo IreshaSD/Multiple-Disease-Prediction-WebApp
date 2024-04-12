@@ -2,16 +2,13 @@
 """
 Created on Wed Apr 10 10:54:05 2024
 
-@author: Wasantha Kumara
+@author: Iresha Sandamali
 """
 
-import sklearn
+import scikit-learn
 import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
-import keras
-from keras.models import save_model
-import tensorflow as tf
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
