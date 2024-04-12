@@ -12,8 +12,8 @@ Display of clear prediction results for each disease.
 
 Technologies Used:
 
-Streamlit
-scikit-learn (Logistic Regression, SVM)
-pandas
-numpy
+Streamlit,
+scikit-learn (Logistic Regression, SVM),
+pandas,
+numpy,
 pickle
