@@ -23,7 +23,11 @@ breast_cancer_model = pickle.load(open('Breast_Cancer_Pipeline.sav','rb'))
 # Sidebar for navigate
 
 with st.sidebar:
-
+    
+    st.set_page_config(layout="wide")
+    # Add Bootstrap CDN link
+    st.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">')
+   
     selected = option_menu('Multiple Disease Prediction System using ML',
 
                            ["Diabetes Prediction",
