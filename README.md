@@ -2,7 +2,7 @@
 
 This web application allows users to predict the likelihood of four different diseases (Diabetes, Heart Disease, Parkinson's, and Breast Cancer) using machine learning models. Each model is implemented using scikit-learn and saved using pickle for later use.
 
-## Key Features:
+### Key Features:
 
 1. Streamlit framework for user interface with clear navigation using an option menu.
 2. Individual prediction pages for each disease with user input forms for relevant features.
