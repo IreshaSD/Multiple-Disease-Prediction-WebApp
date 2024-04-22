@@ -89,15 +89,19 @@ if (selected == 'Diabetes Prediction'):
 
     if st.button('Diabetes Test Result'):
         
-        input_data = [Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]
-        diab_prediction = diabetes_model.predict(np.asarray(input_data).reshape(1, -1))
+        if not all([Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]):
+            st.warning('Please enter all values before proceeding.')
         
-        
-        if (diab_prediction[0]==1):
-            diab_diagnosis = 'The person is Diabetic'
-
         else:
-            diab_diagnosis = 'The person is not Diabetic'
+            input_data = [Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]
+            diab_prediction = diabetes_model.predict(np.asarray(input_data).reshape(1, -1))
+        
+        
+            if (diab_prediction[0]==1):
+                diab_diagnosis = 'The person is Diabetic'
+    
+            else:
+                diab_diagnosis = 'The person is not Diabetic'
 
     st.success(diab_diagnosis)
     
@@ -161,17 +165,22 @@ if (selected == 'Heart  Disease Prediction'):
 
         #Heart_prediction = heart_disease_model.predict([[age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal]])
         #user_input = [int(age), sex, int(cp), int(trestbps), int(chol), fbs, restecg, int(thalach), exang, float(oldpeak), slope, ca, thal]
-        input_data = [float(age), float(sex), float(cp), float(trestbps), float(chol), float(fbs), float(restecg), float(thalach), float(exang), float(oldpeak), float(slope), float(ca), float(thal)]
-        Heart_prediction = heart_disease_model.predict(np.asarray(input_data).reshape(1, -1))
-
-
-        if (Heart_prediction[0]==1):
-            Heart_diagnosis = 'The person is a heart patient'
-
+        if not all([age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]):
+            st.warning('Please enter all values before proceeding.')
+            
         else:
-            Heart_diagnosis = 'The person is not a heart patient'
+            input_data = [float(age), float(sex), float(cp), float(trestbps), float(chol), float(fbs), float(restecg), float(thalach), float(exang), float(oldpeak), float(slope), float(ca), float(thal)]
+            Heart_prediction = heart_disease_model.predict(np.asarray(input_data).reshape(1, -1))
+    
+    
+            if (Heart_prediction[0]==1):
+                Heart_diagnosis = 'The person is a heart patient'
+    
+            else:
+                Heart_diagnosis = 'The person is not a heart patient'
 
     st.success(Heart_diagnosis)
+    
     
 # 3. Parkinsons  Disease Prediction
 
@@ -257,18 +266,24 @@ if (selected == 'Parkinsons Prediction'):
 
     if st.button('parkinsons Test Result'):
         #parkinsons_prediction = parkinsons_model.predict([[MDVPFo(Hz),MDVPFhi(Hz),MDVPFlo(Hz),MDVPJitter,MDVPJitter(Abs),MDVPRAP,MDVPPPQ,JitterDDP,MDVPShimmer,MDVPShimmer(dB),ShimmerAPQ3,ShimmerAPQ5,MDVPAPQ,ShimmerDDA,NHR,HNR,RPDE,DFA,spread1,spread2,D2,PPE]])
-        input_data = [fo, fhi, flo, Jitter_percent, Jitter_Abs,
-                      RAP, PPQ, DDP,Shimmer, Shimmer_dB, APQ3, APQ5,
-                      APQ, DDA, NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE]
+        if not all([fo, fhi, flo, Jitter_percent, Jitter_Abs,
+                          RAP, PPQ, DDP,Shimmer, Shimmer_dB, APQ3, APQ5,
+                          APQ, DDA, NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE]):
+            st.warning('Please enter all values before proceeding.')
         
-        parkinsons_prediction = parkinsons_model.predict(np.asarray(input_data).reshape(1, -1))
-
-
-        if (parkinsons_prediction[0]==1):
-            parkinsons_diagnosis = "The person has Parkinson's"
-
         else:
-            parkinsons_diagnosis = "The person does not have Parkinson's Disease"
+            input_data = [fo, fhi, flo, Jitter_percent, Jitter_Abs,
+                          RAP, PPQ, DDP,Shimmer, Shimmer_dB, APQ3, APQ5,
+                          APQ, DDA, NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE]
+            
+            parkinsons_prediction = parkinsons_model.predict(np.asarray(input_data).reshape(1, -1))
+    
+    
+            if (parkinsons_prediction[0]==1):
+                parkinsons_diagnosis = "The person has Parkinson's"
+    
+            else:
+                parkinsons_diagnosis = "The person does not have Parkinson's Disease"
 
     st.success(parkinsons_diagnosis)
 
@@ -381,25 +396,30 @@ if (selected == 'Breast Cancer Predictions'):
 
     if st.button('Breast Cancer Prediction Test Result'):
 
+       
         #breabreast_cancer_prediction =breast_cancer_model.predict([[mean_radius,mean_texture,mean_perimeter,mean_area,mean_smoothness,mean_compactness,mean_concavity,mean_concave_points,mean_symmetry,mean_fractal_dimension,radius_error,texture_error,perimeter_error,area_error,smoothness_error,compactness_error,concavity_error,concave_points_error,symmetry_error,fractal_dimension_error,worst_radius,worst_texture,worst_perimeter,worst_area,worst_smoothness,worst_compactness,worst_concavity,worst_concave_points,worst_symmetry,worst_fractal_dimension]])
-        input_data = [float(mean_radius), float(mean_texture), float(mean_perimeter), float(mean_area),
-                      float(mean_smoothness), float(mean_compactness), float(mean_concavity), float(mean_concave_points),
-                      float(mean_symmetry), float(mean_fractal_dimension), float(radius_error), float(texture_error),
-                      float(perimeter_error), float(area_error), float(smoothness_error), float(compactness_error),
-                      float(concavity_error), float(concave_points_error), float(symmetry_error), float(fractal_dimension_error),
-                      float(worst_radius), float(worst_texture), float(worst_perimeter), float(worst_area),
-                      float(worst_smoothness), float(worst_compactness), float(worst_concavity), float(worst_concave_points),
-                      float(worst_symmetry), float(worst_fractal_dimension)]
-
-        # Perform prediction
-        breast_cancer_prediction = breast_cancer_model.predict(np.asarray(input_data).reshape(1, -1))
-        #prediction_label = [np.argmax(breast_cancer_prediction)]
-
-        if (breast_cancer_prediction[0]==0):
-
-            breast_cancer_diagnosis = 'The person does have a Brest Cancer'
-
-        else:
-            breast_cancer_diagnosis = 'The person does not have a breast cancer'
-
+        
+          if not all([mean_radius,mean_texture,mean_perimeter,mean_area,mean_smoothness,mean_compactness,mean_concavity,mean_concave_points,mean_symmetry,mean_fractal_dimension,radius_error,texture_error,perimeter_error,area_error,smoothness_error,compactness_error,concavity_error,concave_points_error,symmetry_error,fractal_dimension_error,worst_radius,worst_texture,worst_perimeter,worst_area,worst_smoothness,worst_compactness,worst_concavity,worst_concave_points,worst_symmetry,worst_fractal_dimension]):
+              st.warning('Please enter all values before proceeding.')
+        
+          else:
+                input_data = [float(mean_radius), float(mean_texture), float(mean_perimeter), float(mean_area),
+                              float(mean_smoothness), float(mean_compactness), float(mean_concavity), float(mean_concave_points),
+                              float(mean_symmetry), float(mean_fractal_dimension), float(radius_error), float(texture_error),
+                              float(perimeter_error), float(area_error), float(smoothness_error), float(compactness_error),
+                              float(concavity_error), float(concave_points_error), float(symmetry_error), float(fractal_dimension_error),
+                              float(worst_radius), float(worst_texture), float(worst_perimeter), float(worst_area),
+                              float(worst_smoothness), float(worst_compactness), float(worst_concavity), float(worst_concave_points),
+                              float(worst_symmetry), float(worst_fractal_dimension)]
+        
+                # Perform prediction
+                breast_cancer_prediction = breast_cancer_model.predict(np.asarray(input_data).reshape(1, -1))
+                #prediction_label = [np.argmax(breast_cancer_prediction)]
+        
+                if (breast_cancer_prediction[0]==0):
+        
+                    breast_cancer_diagnosis = 'The person does have a Brest Cancer'
+        
+                else:
+                    breast_cancer_diagnosis = 'The person does not have a breast cancer'
     st.success(breast_cancer_diagnosis)
