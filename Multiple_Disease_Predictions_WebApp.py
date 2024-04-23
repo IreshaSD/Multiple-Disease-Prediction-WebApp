@@ -88,20 +88,37 @@ if (selected == 'Diabetes Prediction'):
     # creating a button for prediction
 
     if st.button('Diabetes Test Result'):
-        
+
         if not all([Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]):
             st.warning('Please enter all values before proceeding.')
-        
         else:
-            input_data = [Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]
-            diab_prediction = diabetes_model.predict(np.asarray(input_data).reshape(1, -1))
-        
-        
-            if (diab_prediction[0]==1):
-                diab_diagnosis = 'The person is Diabetic'
-    
+            # Convert input data to float and handle empty strings
+            input_data = [float(val) if val else np.nan for val in [Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]]
+            # Check if there are any NaN values in the input data
+            if any(np.isnan(input_data)):
+                st.warning('Please enter valid numeric values for all inputs.')
             else:
-                diab_diagnosis = 'The person is not Diabetic'
+                # Perform prediction
+                diab_prediction = diabetes_model.predict(np.asarray(input_data).reshape(1, -1))
+                if diab_prediction[0] == 1:
+                    diab_diagnosis = 'The person is Diabetic'
+                else:
+                    diab_diagnosis = 'The person is not Diabetic'
+
+        
+        # if not all([Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]):
+        #     st.warning('Please enter all values before proceeding.')
+        
+        # else:
+        #     input_data = [Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]
+        #     diab_prediction = diabetes_model.predict(np.asarray(input_data).reshape(1, -1))
+        
+        
+        #     if (diab_prediction[0]==1):
+        #         diab_diagnosis = 'The person is Diabetic'
+    
+        #     else:
+        #         diab_diagnosis = 'The person is not Diabetic'
 
     st.success(diab_diagnosis)
     
